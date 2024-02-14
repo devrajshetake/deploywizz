@@ -1,0 +1,6 @@
+sudo mkdir /home/jenkins
+sudo chmod 777 /home/jenkins
+install java
+docker run -d --rm --name=agent1 -p 222:22 \
+-e "JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCryTaAIepNnSIkHy+6NPKrbv2ft89TzknVczG8z0Z9FdscHNsf2K3Mzd+MX7+Pp04jQTwCq6WPW9w8P/S/1TpkiuFXIuye8DZIxPUvLN+tj/fVX/UJJNmMDNDKMJKo9UUZxpsnYTPolVKacnPScDOzTuG8cMLy/A3u/RFd8d8E7mh/5snzARI8SoArkx/gb9HD3TpuAm9KMuDsRGqsCG7XOVUF9rBaQ+siA1KfwsRQoGFzsf1aaBG9QpPNFEcaaFsklzFJQen8HKNQnRyMWVBRtZcR1WotvVYbHF7oiEKhoUMJO7mv0tNSg1+EVbF82ljtMKCVg9CLUWqiasUpoZe4/MxRW7KkDdAnn5/YZ6vjiWarFrExXjkHVzV0C0bZgmVkxDpH2NObqVvh5DP/3IgwG9vWaF2Agk7uptHUOwK5l0giuXiTO3pROgxXsg9bdZTkxlQDmZbhDq1Uqa/UlvQjMrSC4kxjGAtAVCwp/alXF5zomxrvg60yEA5r5apchRk= generated-by-azure" \
+jenkins/ssh-agent:alpine-jdk17

@@ -1,0 +1,47 @@
+name: test2
+nodeDescription: 
+_.numExecutors: 1
+_.remoteFS: /home/jenkins
+_.labelString: 
+mode: EXCLUSIVE
+stapler-class: hudson.slaves.JNLPLauncher
+$class: hudson.slaves.JNLPLauncher
+_.workDirPath: 
+_.internalDir: remoting
+_.tunnel: 
+stapler-class: hudson.plugins.sshslaves.SSHLauncher
+$class: hudson.plugins.sshslaves.SSHLauncher
+_.host: 20.244.84.147
+includeUser: false
+_.credentialsId: test1_vm
+stapler-class: hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy
+$class: hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy
+stapler-class: hudson.plugins.sshslaves.verifiers.ManuallyProvidedKeyVerificationStrategy
+$class: hudson.plugins.sshslaves.verifiers.ManuallyProvidedKeyVerificationStrategy
+stapler-class: hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy
+$class: hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy
+stapler-class: hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy
+$class: hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy
+_.port: 22
+_.javaPath: 
+_.jvmOptions: 
+_.prefixStartSlaveCmd: 
+_.suffixStartSlaveCmd: 
+launchTimeoutSeconds: 
+maxNumRetries: 
+retryWaitTime: 
+tcpNoDelay: on
+workDir: 
+stapler-class: hudson.slaves.RetentionStrategy$Always
+$class: hudson.slaves.RetentionStrategy$Always
+stapler-class: hudson.slaves.SimpleScheduledRetentionStrategy
+$class: hudson.slaves.SimpleScheduledRetentionStrategy
+retentionStrategy.inDemandDelay: 
+retentionStrategy.idleDelay: 
+stapler-class: hudson.slaves.RetentionStrategy$Demand
+$class: hudson.slaves.RetentionStrategy$Demand
+stapler-class-bag: true
+type: hudson.slaves.DumbSlave
+Submit: 
+Jenkins-Crumb: 566d085390a1eb8a8c557ba82989c2a59ba2ae78d8026c622a28b69c7e227375
+json: {"name": "test2", "nodeDescription": "", "numExecutors": "1", "remoteFS": "/home/jenkins", "labelString": "", "mode": "EXCLUSIVE", "": ["hudson.plugins.sshslaves.SSHLauncher", "0"], "launcher": {"stapler-class": "hudson.plugins.sshslaves.SSHLauncher", "$class": "hudson.plugins.sshslaves.SSHLauncher", "host": "20.244.84.147", "includeUser": "false", "credentialsId": "test1_vm", "": "0", "sshHostKeyVerificationStrategy": {"stapler-class": "hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy", "$class": "hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy"}, "port": "22", "javaPath": "", "jvmOptions": "", "prefixStartSlaveCmd": "", "suffixStartSlaveCmd": "", "launchTimeoutSeconds": "", "maxNumRetries": "", "retryWaitTime": "", "tcpNoDelay": true, "workDir": ""}, "retentionStrategy": {"stapler-class": "hudson.slaves.RetentionStrategy$Always", "$class": "hudson.slaves.RetentionStrategy$Always"}, "nodeProperties": {"stapler-class-bag": "true"}, "type": "hudson.slaves.DumbSlave", "Submit": "", "Jenkins-Crumb": "566d085390a1eb8a8c557ba82989c2a59ba2ae78d8026c622a28b69c7e227375"}
