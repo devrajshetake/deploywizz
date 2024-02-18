@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from automation.views import test_view
-from sites.views import DeploySiteView, SiteListView, DeploymentListView, DeploymentDetailView
+from sites.views import DeployRepositoryView, SiteListView, DeploymentListView
+from users.views import UserReposView, RepoStructureView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', view=test_view),
-    path('sites/<int:pk>/deploy/', DeploySiteView.as_view(), name='deploy_site'),
+    path('github-user/<str:username>/repos/', UserReposView.as_view(), name='user_repos'),
+    path('github-repo/<str:username>/<str:repo_name>/', RepoStructureView.as_view(), name='repo_structure'),
     path('sites/', SiteListView.as_view(), name='site_list'),
     path('deployments/', DeploymentListView.as_view(), name='deployment_list'),
-    path('deployments/<int:pk>/', DeploymentDetailView.as_view(), name='deployment_detail'),
+    path('deploy/', DeployRepositoryView.as_view(), name='deploy_repository'),
 ]
