@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from sites.models import Site
+# from sites.models import Site
 from api4jenkins import Jenkins
 
 
@@ -57,7 +57,7 @@ class VirtualMachine(models.Model):
 
 
 class Job(models.Model):
-    site = models.OneToOneField(Site, on_delete = models.CASCADE, null = True)
+    site = models.OneToOneField('sites.Site', on_delete = models.CASCADE, null = True)
     name = models.CharField(max_length = 64)
     path = models.CharField(max_length = 128, blank = True, default = "")
 

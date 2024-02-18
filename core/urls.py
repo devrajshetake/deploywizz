@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from automation.views import test_view
+from sites.views import DeploySiteView, SiteListView, DeploymentListView, DeploymentDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', view=test_view)
+    path('test/', view=test_view),
+    path('sites/<int:pk>/deploy/', DeploySiteView.as_view(), name='deploy_site'),
+    path('sites/', SiteListView.as_view(), name='site_list'),
+    path('deployments/', DeploymentListView.as_view(), name='deployment_list'),
+    path('deployments/<int:pk>/', DeploymentDetailView.as_view(), name='deployment_detail'),
 ]
