@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # External
     'rest_framework', 
+    'constance',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+CONSTANCE_CONFIG = {
+    'JENKINS_URL': ("default_jenkins_url_value", "Jenkins URL", str),
+    'JENKINS_USERNAME': ("default_jenkins_username_value", "Jenkins Username", str),
+    'JENKINS_PASSWORD': ("default_jenkins_password_value", "Jenkins Password", str),
+
+    # Script Options
+    'SETUP_SCRIPT' : ("default script", "VM Setup Script", str),
+    'PUBLIC_KEY_SCRIPT' : ("default script", "Add Public key Script", str),
+}
+
+CONSTANCE_CONFIG_FIELDSETS = {
+    'Jenkins Options': ('JENKINS_URL', 'JENKINS_USERNAME', 'JENKINS_PASSWORD'),
+    'Script Options': ('SETUP_SCRIPT', 'PUBLIC_KEY_SCRIPT'),
+}
