@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'sites',
     'automation',
 
+    'corsheaders',
+
     # External
     'rest_framework', 
     'constance',
@@ -59,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -151,3 +155,5 @@ CONSTANCE_CONFIG_FIELDSETS = {
     'Jenkins Options': ('JENKINS_URL', 'JENKINS_USERNAME', 'JENKINS_PASSWORD'),
     'Script Options': ('SETUP_SCRIPT', 'PUBLIC_KEY_SCRIPT'),
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
