@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # from sites.models import Site
 from api4jenkins import Jenkins
+# from .VMUtils import VMUtils
 
 
 # Create your models here.
@@ -11,9 +12,9 @@ class VirtualMachine(models.Model):
     public_ip = models.CharField(max_length = 24, unique = True)
     provider = models.CharField(max_length = 24) 
     region = models.CharField(max_length = 24)
-    cpus = models.IntegerField(null = True, blank = True)
-    ram = models.FloatField(null = True, blank = True)
-    memory = models.FloatField(null = True, blank = True)
+    cpus = models.CharField(max_length = 10,null = True, blank = True)
+    ram = models.CharField(max_length = 10,null = True, blank = True)
+    memory = models.CharField(max_length = 10,null = True, blank = True)
     architecture = models.CharField(max_length = 10, null = True, blank = True)
 
     def get_public_ip(self):
