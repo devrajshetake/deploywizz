@@ -5,19 +5,19 @@ from .models import VirtualMachine
 
 # Create your views here.
 def test_view(request):
-    # my_vm = VirtualMachine.objects.first()
+    my_vm = VirtualMachine.objects.first()
 
-    # util = VMUtils(my_vm, "C:\\Users\\dshetake\\OneDrive - Avaya\\Desktop\\cicd\\deploy\\test1_vm.pem")
-    # system_info = util.get_system_info()
-    # print(system_info)
+    util = VMUtils(my_vm)
+    system_info = util.get_system_info()
+    print(system_info)
 
 
-    my_site = {
-        "name" : "test_site"
-    }
+    # my_site = {
+    #     "name" : "test_site"
+    # }
 
-    util = JenkinsUtil(my_site)
-    util.create_job()
+    # util = JenkinsUtil(my_site)
+    # util.create_job()
 
 
     return HttpResponse("OK")

@@ -6,6 +6,7 @@ class VMUtils():
         try: 
             self.client = paramiko.SSHClient()
             self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            self.file_path = "/home/dev/Desktop/BE Project/VMs/tests/BYOVM1_key.pem"
 
             private_key_string = """-----BEGIN RSA PRIVATE KEY-----
 MIIG4wIBAAKCAYEAq8k2gCHqTZ0iJB8vujTyq279n7fPU85J1XMxvM9GfRXbHBzb
@@ -53,7 +54,7 @@ ripcChwDqVkZ9L6a0gmbuetqVR1PDm2C2no2nAQky39nnMCL/BLkRtZGslsbTpsT
 
             
 
-            self.client.connect(hostname=self.vm.public_ip, username="azureuser", key_filename="/home/dev/Desktop/BE Project/VMs/tests/test1_key.pem")
+            self.client.connect(hostname=self.vm.public_ip, username="azureuser", key_filename="/home/dev/Desktop/BE Project/VMs/tests/BYOVM1_key.pem")
 
 
             # Execute the ls command
