@@ -5,19 +5,19 @@ from .models import VirtualMachine
 
 # Create your views here.
 def test_view(request):
-    my_vm = VirtualMachine.objects.first()
+    # my_vm = VirtualMachine.objects.first()
 
-    util = VMUtils(my_vm)
-    system_info = util.get_system_info()
-    print(system_info)
+    # util = VMUtils(my_vm)
+    # system_info = util.get_system_info()
+    # print(system_info)
 
 
-    # my_site = {
-    #     "name" : "test_site"
-    # }
+    my_site = {
+        "name" : "test_site"
+    }
 
-    # util = JenkinsUtil(my_site)
-    # util.create_job()
+    util = JenkinsUtil(my_site)
+    util.create_job()
 
 
     return HttpResponse("OK")
@@ -85,3 +85,18 @@ def virtual_machine_detail(request, public_ip):
     if request.method == 'GET':
         serializer = VirtualMachineSerializer(virtual_machine)
         return Response(serializer.data)
+random_sites =["", ]
+@api_view(['POST'])
+def deploy_site(request):
+    print("called")
+    if 'public_ip' not in request.data or 'git_url' not in request.data:
+        return Response({"message": "public_ip and git_url are compulsory fields"}, status=status.HTTP_400_BAD_REQUEST)
+    vm = VirtualMachine.objects.get(public_ip=request.data.get("public_ip"))
+    git_url = request.data.get("git_url")
+    site_name = request.data.get("site_name", "")
+    logs = vm.deploy(git_url)
+    vm.add_dns_record(site_name, vm.public_ip)
+
+    return Response({"message": "Site deployed successfully", "site_url" : vm.public_ip, "logs" : logs}, status=status.HTTP_200_OK)
+
+    

@@ -2,6 +2,7 @@ from constance import config
 from sites.models import Site
 from api4jenkins import Jenkins as API4Jenkins
 from jenkinsapi.jenkins import Jenkins
+import os
 
 class JenkinsUtil:
     def __init__(self, site : Site = None):
@@ -66,14 +67,12 @@ class JenkinsUtil:
     
 
     def _get_job_xml(self):
-        job_xml = """
-        <project>
-            <description>This is a sample Jenkins job</description>
-            <builders>
-                <shell>echo "Hello, world!"</shell>
-                <shell>echo "ls"</shell>
-            </builders>
-        </project>
-        """
-        return job_xml
+        try:
+            # Assuming the job XML file is named 'job.xml' in the current directory
+            job_xml_file_path = os.path.join(os.path.dirname(__file__), 'job.xml')
+            with open(job_xml_file_path, 'r') as xml_file:
+                job_xml = xml_file.read()
+            return job_xml
+        except Exception as e:
+            raise Exception("Error reading job XML file: " + str(e))
 

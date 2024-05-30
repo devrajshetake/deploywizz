@@ -1,7 +1,7 @@
 from .models import VirtualMachine
 import paramiko
 
-PRIVATE_KEY_PATH = "/home/dev/Desktop/BE Project/keys/id_rsa"
+PRIVATE_KEY_PATH = "C:\\Users\\dshetake\\OneDrive - Avaya\\Desktop\\cicd\\deploy\\test1_vm.pem"
 class VMUtils():
     def __init__(self, vm : VirtualMachine) -> None:
         self.vm = vm
@@ -74,7 +74,7 @@ class VMUtils():
                 "architecture": architecture
             }
         except Exception as e:
-            raise Exception("Error connecting the VM: " + str(e))
+            raise Exception("Error connecting the VM: " + str(e) + "While getting system info")
         
     def setup(self):
         try:
